@@ -67,9 +67,15 @@ Fungsi-fungsi custom:
 - Maven
 
 ### Database Setup
-```sql
--- Sesuaikan dengan schema database Anda
--- Update connection string di src/main/resources/application.properties
+```bash
+# Configure database credentials using environment variables (recommended)
+export DB_USERNAME=your_username
+export DB_PASSWORD=your_password
+
+# Or copy and edit the example configuration
+cp src/main/resources/application.properties.example src/main/resources/application-local.properties
+# Edit application-local.properties with your actual credentials
+# Then run with: mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
 ### Build & Run

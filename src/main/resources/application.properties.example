@@ -1,0 +1,14 @@
+# Database Configuration
+# Copy this file to application-local.properties and set your actual values
+# DO NOT commit application-local.properties to version control
+
+spring.datasource.jdbc-url=jdbc:postgresql://localhost:5432/ruanganTU
+spring.datasource.username=postgres
+spring.datasource.password=your_password_here
+spring.datasource.platform=postgresql
+
+server.port=8181
+
+# Or use environment variables:
+# DB_USERNAME=postgres
+# DB_PASSWORD=your_password_here
