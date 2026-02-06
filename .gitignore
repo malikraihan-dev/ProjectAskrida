@@ -1,0 +1,8 @@
+*.zip
+target/
+bin/
+.settings/
+.classpath
+.project
+.mvn/
+application-local.properties
