@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Ruangan TU - Askrida</title>
+    <link rel="stylesheet" href="/css/aplikasi.css">
+</head>
+<body>
+    <div class="kontainer-utama">
+        <header class="kepala-halaman">
+            <h1>🏫 Sistem Absensi Ruangan TU</h1>
+            <p class="subjudul">Kelola kehadiran anggota dengan mudah dan efisien</p>
+        </header>
+
+        <nav class="menu-navigasi">
+            <button class="tombol-menu aktif" onclick="tampilkanHalaman('beranda')">Beranda</button>
+            <button class="tombol-menu" onclick="tampilkanHalaman('absensi')">Absensi</button>
+            <button class="tombol-menu" onclick="tampilkanHalaman('anggota')">Kelola Anggota</button>
+            <button class="tombol-menu" onclick="tampilkanHalaman('riwayat')">Riwayat</button>
+        </nav>
+
+        <main class="area-konten">
+            <div id="halaman-beranda" class="panel-halaman">
+                <div class="kartu-sambutan">
+                    <h2>Selamat Datang di Sistem Absensi</h2>
+                    <p>Gunakan menu di atas untuk navigasi:</p>
+                    <ul class="daftar-fitur">
+                        <li>✅ <strong>Absensi:</strong> Catat kehadiran masuk dan keluar</li>
+                        <li>👥 <strong>Kelola Anggota:</strong> Tambah, edit, atau lihat data anggota</li>
+                        <li>📊 <strong>Riwayat:</strong> Pantau catatan absensi terbaru</li>
+                    </ul>
+                </div>
+                <div class="statistik-cepat">
+                    <div class="kotak-stat">
+                        <span class="angka-stat" id="total-absen-hari-ini">0</span>
+                        <span class="label-stat">Absen Hari Ini</span>
+                    </div>
+                    <div class="kotak-stat">
+                        <span class="angka-stat" id="total-anggota">0</span>
+                        <span class="label-stat">Total Anggota</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="halaman-absensi" class="panel-halaman tersembunyi">
+                <div class="kartu-formulir">
+                    <h2>Formulir Absensi</h2>
+                    <form id="form-absensi" onsubmit="prosesAbsensi(event)">
+                        <div class="grup-input">
+                            <label for="nim-absensi">NIM/ID Anggota:</label>
+                            <input type="text" id="nim-absensi" placeholder="Masukkan NIM anggota" required>
+                        </div>
+                        <button type="submit" class="tombol-primer">Proses Absensi</button>
+                    </form>
+                    <div id="hasil-absensi" class="kotak-hasil"></div>
+                </div>
+            </div>
+
+            <div id="halaman-anggota" class="panel-halaman tersembunyi">
+                <div class="kartu-formulir">
+                    <h2>Tambah Anggota Baru</h2>
+                    <form id="form-tambah-anggota" onsubmit="tambahAnggotaBaru(event)">
+                        <div class="grup-input">
+                            <label for="nim-baru">NIM:</label>
+                            <input type="text" id="nim-baru" placeholder="NIM anggota" required>
+                        </div>
+                        <div class="grup-input">
+                            <label for="nama-baru">Nama Lengkap:</label>
+                            <input type="text" id="nama-baru" placeholder="Nama lengkap anggota" required>
+                        </div>
+                        <div class="grup-input">
+                            <label for="kelas-baru">Kelas:</label>
+                            <input type="text" id="kelas-baru" placeholder="Kelas (misal: 3A)" required>
+                        </div>
+                        <div class="grup-input">
+                            <label for="divisi-baru">ID Divisi:</label>
+                            <input type="number" id="divisi-baru" placeholder="ID divisi" required>
+                        </div>
+                        <button type="submit" class="tombol-primer">Simpan Anggota</button>
+                    </form>
+                    <div id="hasil-anggota" class="kotak-hasil"></div>
+                </div>
+            </div>
+
+            <div id="halaman-riwayat" class="panel-halaman tersembunyi">
+                <div class="kartu-tabel">
+                    <h2>Riwayat Absensi Terbaru</h2>
+                    <button onclick="muatRiwayat()" class="tombol-sekunder">Muat Ulang Data</button>
+                    <div class="wadah-tabel">
+                        <table id="tabel-riwayat">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NIM</th>
+                                    <th>Nama</th>
+                                    <th>Ruangan</th>
+                                    <th>Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="isi-tabel-riwayat">
+                                <tr><td colspan="5" class="teks-tengah">Klik "Muat Ulang Data" untuk menampilkan riwayat</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="kaki-halaman">
+            <p>&copy; 2026 Sistem Absensi Ruangan TU - Askrida. Dikembangkan dengan dedikasi.</p>
+        </footer>
+    </div>
+
+    <script src="/js/aplikasi.js"></script>
+</body>
+</html>
