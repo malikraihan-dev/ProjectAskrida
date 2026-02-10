@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Ruangan TU</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistem Absensi Ruangan TU</h1>
+            <p class="subtitle">Manajemen Kehadiran dan Data Anggota</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="showTab('absensi')">Absensi</button>
+            <button class="tab-btn" onclick="showTab('anggota')">Kelola Anggota</button>
+            <button class="tab-btn" onclick="showTab('data')">Lihat Data</button>
+        </nav>
+
+        <!-- Tab Absensi -->
+        <div id="absensi" class="tab-content active">
+            <div class="card">
+                <h2>Form Absensi</h2>
+                <form id="absensiForm">
+                    <div class="form-group">
+                        <label for="absensiKey">NIM/ID:</label>
+                        <input type="text" id="absensiKey" name="key" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Absensi</button>
+                </form>
+                <div id="absensiResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Tab Kelola Anggota -->
+        <div id="anggota" class="tab-content">
+            <div class="card">
+                <h2>Tambah Anggota Baru</h2>
+                <form id="tambahAnggotaForm">
+                    <div class="form-group">
+                        <label for="tambahKey">NIM/ID:</label>
+                        <input type="text" id="tambahKey" name="key" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tambahNama">Nama:</label>
+                        <input type="text" id="tambahNama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tambahKelas">Kelas:</label>
+                        <input type="text" id="tambahKelas" name="kelas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tambahDivisi">ID Divisi:</label>
+                        <input type="number" id="tambahDivisi" name="idDivisi" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tambah Anggota</button>
+                </form>
+                <div id="tambahAnggotaResult" class="result"></div>
+            </div>
+
+            <div class="card">
+                <h2>Update Anggota</h2>
+                <form id="updateAnggotaForm">
+                    <div class="form-group">
+                        <label for="updateKey">NIM/ID:</label>
+                        <input type="text" id="updateKey" name="key" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateNama">Nama:</label>
+                        <input type="text" id="updateNama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateKelas">Kelas:</label>
+                        <input type="text" id="updateKelas" name="kelas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateDivisi">ID Divisi:</label>
+                        <input type="number" id="updateDivisi" name="idDivisi" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Update Anggota</button>
+                </form>
+                <div id="updateAnggotaResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Tab Lihat Data -->
+        <div id="data" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Data Absensi</h2>
+                    <button onclick="loadAllData()" class="btn btn-primary">Refresh Data</button>
+                </div>
+                <div id="dataTable"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
